@@ -42,7 +42,11 @@ namespace Nachiappan.JitLoggerDemo
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseJitLogger(loggerFactory);
+            app.UseJitLogger(loggerFactory, (options) =>
+            {
+                options.LogRetentionTimeInSeconds = 120;
+                options.LogRetentionBufferSize = 100;
+            });
             app.UseStaticFiles();
 
             app.UseMvc(routes =>

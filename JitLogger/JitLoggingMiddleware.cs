@@ -31,7 +31,7 @@ namespace Nachiappan.JitLogger
         {
             context.Response.StatusCode = 400;
             context.Response.ContentType = "text/html";
-            var html = HtmlGenerator.GetHtml();
+            var html = HtmlGenerator.GetHtml(_options.LoggerName, _jitLogRepository.GetLogs());
             await context.Response.WriteAsync(html, Encoding.UTF8);
         }
 

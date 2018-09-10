@@ -8,12 +8,16 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <Authors>Nachiappan</Authors>
     <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
-    <RepositoryType>https://github.com/nachiappannk/JitLogger</RepositoryType>
-    <PackageTags>jit,just-in-time,logger,asp.net core, screen logger,</PackageTags>
+    <RepositoryType>Github</RepositoryType>
+    <PackageTags>jit-logger, just-in-time-logger, logger, asp.net-core, screen-logger, log-aggregator, easy-log, quick-log,</PackageTags>
     <Description>Jit Logger is a logger for asp.net core application.
 When Jit logger is used, the logs are availble as a web page.
 Having the logs as a web page, makes the logs quickly available to the developer.
-Having the logs quickly helps in debugging and developing.</Description>
+Having the logs quickly helps in developement, testing and debugging.</Description>
+    <PackageIconUrl></PackageIconUrl>
+    <RepositoryUrl>https://github.com/nachiappannk/JitLogger</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/nachiappannk/JitLogger#jitlogger</PackageProjectUrl>
+    <Copyright>Copyright 2018 Nachiappan</Copyright>
   </PropertyGroup>
 
   <ItemGroup>

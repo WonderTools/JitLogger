@@ -44,7 +44,7 @@ namespace Nachiappan.JitLogger
         {
             lock (_bufferedLogs)
             {
-                return _bufferedLogs;
+                return _bufferedLogs.ToList();
             }
         }
     }

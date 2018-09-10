@@ -15,6 +15,7 @@ $@"
                     <tr>
                         <td width=10%>{moduleName}</td>
                         <td width=7%>{log.LogId}</td>
+                        <td width=7%>{log.LogLevel.ToString()}</td>
                         <td width=7%>{date}</td>
                         <td width=7%>{log.EventId.Id}</td>
                         <td width=7%>{eventName}</td>
@@ -45,6 +46,7 @@ $@"
                     <tr>
                         <th width =10%>Module </th>
                         <th width=7%>Log Id</th>
+                        <th width=7%>Log Level</th>
                         <th width =7%>Date </th> 
                          <th width=7%>EventID </th>
                          <th width=7%>Event Name</th>
@@ -166,7 +168,7 @@ $@"
 
     <body>
         <header>
-            <h2>MDS - Jit Logger</h2>
+            <h2>{moduleName} - Jit Logger</h2>
             <div>&nbsp;</div>
           </header>
           <div class=""main-content-div"">

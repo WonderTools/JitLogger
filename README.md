@@ -2,21 +2,22 @@
 Just in time logger for ASP.NET Core applications
 
 ## Logging in ASP.NET Core
-Microsoft has modularized logging in ASP.Net core application. 
-When logging using ILogger in ASP.NET core, the logs could be made available in Debug, Console, Application Insights, etc... by just adding one line in Startup.cs
-Logs are very useful in an application. 
-When properly logged there could be many benefits such as getting more information about bugs reported, analysing features based on usage.
+Microsoft has modularized logging in ASP.Net core application.
+Logging could be done in ASP.Net core by injecting an interface "ILogger" to your business code.
+When logged in ILogger, the logs are available to the logging providers in the system. The logging providers could take the log and put it to the console, or debug or application insights or to a file or anywhere else.
+Logging providers could be easily added by one or two lines of code. This had made accessing of application logs very easy.
 
-## The logging use case Jit Logger solves
-Logs could speed up development. The logs could help the developer to verify the use case that he has just implemented. 
-It could help testers confirm an error scenario. Logs could also reduce the time spent by the developer in debugging with break points.
-This would be very useful in enviroments where break points are not possible.
+There are many logging providers provided by default such as Console, Debug, ApplicationInsights, etc... There are also other logging providers such as Serilog, NLog, etc...
 
-For all of the above uses of logs, the availability (speed and easiness) of the logs is very important.
-For these use cases, logs can not be used if it would take time to get the logs. (In this case, I consider 2 mins as a log time)
-It can not be used if too many steps have to be performed to get the logs.
+## Philosophy of Jit Logger
+Most of the logger that are now available are making sure that logs are safely stored, and are analysable in the futher. They are doing a fantastic job. Most of the loggers are taking some time (few minutes) to make the log available. There were no logger that makes the logs instantaneously available. (Or at least I wasn't able to find). With Jit Logger a latest portion of your logs are instantaneous available in application in a web page.
 
-Jit Logger solves these problems. Jit logger make application logs easily available in a decent UI.
+Jit logger's philosophy is quick and easy access to recent logs in an analysable form.
+
+## Benefits of Jit Logger
+1. Speed up developement by reducing debugging time
+2. Speed up testing
+3. Assists in debugging in enviroments where break points are not possible.
 
 ## How to use it
 1. In your asp.net core application install the nuget package "Nachiappan.JitLogger"
@@ -24,8 +25,13 @@ Jit Logger solves these problems. Jit logger make application logs easily availa
 3. In Configure method in Startup.cs, inject ILoggerFactory by "ILoggerFactory loggerFactory"
 4. In Configure method in Startup.cs, add JitLogger Middleware by "app.UseJitLogger(loggerFactory);"
 
+## Releases
+All releases are planned to be done through nuget.
+https://www.nuget.org/packages/Nachiappan.JitLogger
+
 ## Features
-1. Just in Time logging for asp.net core applications
-2. Aggregation of Just in Time logs from multiple services
-3. Modifiying the Jit logging parameters at run-time
-4. Adding authentication for Jit Logger
+1. Just in Time logging for asp.net core applications (Available from 1.0.0)
+2. Aggregation of Just in Time logs from multiple services (To be done)
+3. Modifiying the Jit logging parameters at run-time (To be done)
+4. Adding authentication for Jit Logger (To be done)
+

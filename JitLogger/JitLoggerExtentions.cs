@@ -40,7 +40,7 @@ namespace Nachiappan.JitLogger
                 if (string.IsNullOrWhiteSpace(options.LoggerName))
                     throw new Exception("The Jit Logger name in options in not valid");
 
-                if (!IsEnPointValid(options.JitEndPointPath))
+                if (!IsEnPointValid(options.JitEndPointBaseUrl))
                 {
                     var error1 = "should begin in /";
                     var error2 = "should be followed by an alphabet";

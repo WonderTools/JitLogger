@@ -1,5 +1,5 @@
 # JitLogger
-Just in time logger for ASP.NET Core applications
+Just in time logger for ASP.NET Core applications.
 
 ## Logging in ASP.NET Core
 Microsoft has modularized logging in ASP.Net core application.

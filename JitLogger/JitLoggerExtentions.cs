@@ -19,7 +19,6 @@ namespace Nachiappan.JitLogger
         public static IApplicationBuilder UseJitLogger
             (this IApplicationBuilder builder, ILoggerFactory loggerFactory, Action<JitLoggerOptions> configureAction = null)
         {
-            
             var repository = Get<JitLogRepository>(builder);
             ConfigureOptions(builder, configureAction);
 
@@ -30,6 +29,14 @@ namespace Nachiappan.JitLogger
             return builder;
         }
 
+
+
+        public static IApplicationBuilder UseJitLogger
+            (this IApplicationBuilder builder, ILoggerFactory loggerFactory, Action<JitLoggerOptions, JitLoggerAdditionalSources> configureAction = null)
+        {
+           throw new NotImplementedException();
+        }
+
         private static void ConfigureOptions(IApplicationBuilder builder, Action<JitLoggerOptions> configureAction)
         {
             if (configureAction != null)
@@ -37,7 +44,7 @@ namespace Nachiappan.JitLogger
                 var options = Get<JitLoggerOptions>(builder);
                 configureAction.Invoke(options);
 
-                if (string.IsNullOrWhiteSpace(options.LoggerName))
+                if (string.IsNullOrWhiteSpace(options.ApplicationName))
                     throw new Exception("The Jit Logger name in options in not valid");
 
                 if (!IsEnPointValid(options.JitEndPointBaseUrl))
@@ -70,6 +77,14 @@ namespace Nachiappan.JitLogger
             var t = builder.ApplicationServices.GetService<T>();
             if (t == null) throw new Exception(errorMessage);
             return t;
+        }
+    }
+
+    public class JitLoggerAdditionalSources
+    {
+        public void AddSource(string applicationName, string jitLoggerBaseEndpoint, int time, int bufferSize)
+        {
+            throw new NotImplementedException();
         }
     }
 }

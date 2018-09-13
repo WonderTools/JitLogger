@@ -45,8 +45,20 @@ namespace Nachiappan.JitLoggerDemo
             app.UseJitLogger(loggerFactory, (options) =>
             {
                 options.LogRetentionTimeInSeconds = 120;
+                options.ApplicationName = "1234Logger";
                 options.LogRetentionBufferSize = 100;
             });
+
+            //app.UseJitLogger(loggerFactory, (options, additionalSources) =>
+            //{
+            //    options.LogRetentionTimeInSeconds = 120;
+            //    options.ApplicationName = "1234Logger";
+            //    options.LogRetentionBufferSize = 100;
+
+            //    additionalSources.AddSource("SomeOtherModule", "https://google.com/jit-logger/", 900, 300);
+            //});
+
+
             app.UseStaticFiles();
 
             app.UseMvc(routes =>

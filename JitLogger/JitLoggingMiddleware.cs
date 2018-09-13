@@ -29,20 +29,26 @@ namespace Nachiappan.JitLogger
 
         private async Task HandleJitUiRequest(HttpContext context)
         {
-            context.Response.StatusCode = 400;
+
+
+            context.Response.StatusCode = 200;
             context.Response.ContentType = "text/html";
-            var html = HtmlGenerator.GetHtml(_options.LoggerName, _jitLogRepository.GetLogs());
+
+
+
+            var html = HtmlGenerator.GetHtml(_options.ApplicationName, _jitLogRepository.GetLogs());
             await context.Response.WriteAsync(html, Encoding.UTF8);
         }
 
         private async Task HandleJitLogsRequest(HttpContext context)
         {
-            context.Response.StatusCode = 400;
+
+            context.Response.StatusCode = 200;
             context.Response.ContentType = "application/json";
             var logs = _jitLogRepository.GetLogs();
             var logsModel = new LogsModel()
             {
-                Name = _options.LoggerName,
+                Name = _options.ApplicationName,
                 Logs = logs,
             };
 

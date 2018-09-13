@@ -25,6 +25,7 @@ Most of the logger that are now available are making sure that logs are safely s
 2. In ConfigureServices method in Startup.cs, add JitLogger by "services.AddJitLogger();"
 3. In Configure method in Startup.cs, inject ILoggerFactory by "ILoggerFactory loggerFactory"
 4. In Configure method in Startup.cs, add JitLogger Middleware by "app.UseJitLogger(loggerFactory);"
+5. When all the above steps are done, the logs are available you asp.net application in YOUR_HOST/jit-logger/ui.
 
 ## Releases
 All releases are planned to be done through nuget.

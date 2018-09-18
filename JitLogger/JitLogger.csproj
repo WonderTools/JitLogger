@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>Nachiappan.JitLogger</AssemblyName>
-    <RootNamespace>Nachiappan.JitLogger</RootNamespace>
+    <AssemblyName>WonderTools.JitLogger</AssemblyName>
+    <RootNamespace>WonderTools.JitLogger</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <Authors>Nachiappan</Authors>
@@ -17,7 +17,10 @@ Having the logs quickly helps in developement, testing and debugging.</Descripti
     <PackageIconUrl></PackageIconUrl>
     <RepositoryUrl>https://github.com/nachiappannk/JitLogger</RepositoryUrl>
     <PackageProjectUrl>https://github.com/nachiappannk/JitLogger#jitlogger</PackageProjectUrl>
-    <Copyright>Copyright 2018 Nachiappan</Copyright>
+    <Copyright>Copyright 2018 WonderTools</Copyright>
+    <PackageId>WonderTools.JitLogger</PackageId>
+    <Product>WonderTools.JitLogger</Product>
+    <Company>WonderTools</Company>
   </PropertyGroup>
 
   <ItemGroup>

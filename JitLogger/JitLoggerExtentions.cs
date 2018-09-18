@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace Nachiappan.JitLogger
+namespace WonderTools.JitLogger
 {
     public static class JitLoggerExtentions
     {

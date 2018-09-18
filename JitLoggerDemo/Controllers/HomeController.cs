@@ -5,9 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Nachiappan.JitLoggerDemo.Models;
+using WonderTools.JitLoggerDemo.Models;
 
-namespace Nachiappan.JitLoggerDemo.Controllers
+namespace WonderTools.JitLoggerDemo.Controllers
 {
     public class HomeController : Controller
     {

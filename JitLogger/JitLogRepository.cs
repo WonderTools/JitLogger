@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Extensions.Logging;
 
-namespace Nachiappan.JitLogger
+namespace WonderTools.JitLogger
 {
     public class JitLogRepository
     {

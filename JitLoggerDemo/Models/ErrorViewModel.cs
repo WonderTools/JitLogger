@@ -1,5 +1,5 @@
 using System;
-namespace Nachiappan.JitLoggerDemo.Models
+namespace WonderTools.JitLoggerDemo.Models
 {
     public class ErrorViewModel
     {

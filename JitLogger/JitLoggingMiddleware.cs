@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
-using Nachiappan.JitLogger;
+using WonderTools.JitLogger;
 using Newtonsoft.Json;
 
-namespace Nachiappan.JitLogger
+namespace WonderTools.JitLogger
 {
     public class JitLoggingMiddleware
     {

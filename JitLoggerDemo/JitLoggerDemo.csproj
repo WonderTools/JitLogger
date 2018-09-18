@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <RootNamespace>Nachiappan.JitLoggerDemo</RootNamespace>
-    <AssemblyName>Nachiappan.JitLoggerDemo</AssemblyName>
+    <RootNamespace>WonderTools.JitLoggerDemo</RootNamespace>
+    <AssemblyName>WonderTools.JitLoggerDemo</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace Nachiappan.JitLogger
+namespace WonderTools.JitLogger
 {
     [ProviderAlias("Jit")]
     public class JitLoggerProvider : ILoggerProvider

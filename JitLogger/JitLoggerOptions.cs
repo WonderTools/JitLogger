@@ -1,4 +1,4 @@
-﻿namespace Nachiappan.JitLogger
+﻿namespace WonderTools.JitLogger
 {
     public class JitLoggerOptions
     {

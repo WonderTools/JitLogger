@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Nachiappan.JitLogger
+namespace WonderTools.JitLogger
 {
     public static class HtmlGenerator
     {

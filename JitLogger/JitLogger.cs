@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Extensions.Logging;
 
-namespace Nachiappan.JitLogger
+namespace WonderTools.JitLogger
 {
     public class JitLogger : ILogger
     {

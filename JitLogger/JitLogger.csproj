@@ -15,8 +15,8 @@ When Jit logger is used, the logs are availble as a web page.
 Having the logs as a web page, makes the logs quickly available to the developer.
 Having the logs quickly helps in developement, testing and debugging.</Description>
     <PackageIconUrl></PackageIconUrl>
-    <RepositoryUrl>https://github.com/nachiappannk/JitLogger</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/nachiappannk/JitLogger#jitlogger</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/WonderTools/JitLogger</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/WonderTools/JitLogger#jitlogger</PackageProjectUrl>
     <Copyright>Copyright 2018 WonderTools</Copyright>
     <PackageId>WonderTools.JitLogger</PackageId>
     <Product>WonderTools.JitLogger</Product>

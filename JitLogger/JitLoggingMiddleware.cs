@@ -23,14 +23,15 @@ namespace WonderTools.JitLogger
         public async Task Process(HttpContext context, Func<Task> next)
         {
             var path = context.Request.Path;
-            if (IsRequestForJitLogs(path)) await HandleJitLogsRequest(context);
-            else if (IsRequestForJitUi(path)) await HandleJitUiRequest(context);
+            var method = context.Request.Method;
+            if (IsRequestForJitLogs(path, method)) await HandleJitLogsRequest(context);
+            else if (IsRequestForJitUi(path, method)) await HandleJitUiRequest(context);
             else await next.Invoke();
         }
 
         private async Task HandleJitUiRequest(HttpContext context)
         {
-            context.Response.StatusCode = 400;
+            context.Response.StatusCode = 200;
             context.Response.ContentType = "text/html";
             var html = HtmlGenerator.GetHtml(_options.LoggerName, _jitLogRepository.GetLogs());
             await context.Response.WriteAsync(html, Encoding.UTF8);
@@ -39,7 +40,7 @@ namespace WonderTools.JitLogger
         private async Task HandleJitLogsRequest(HttpContext context)
         {
             
-            context.Response.StatusCode = 400;
+            context.Response.StatusCode = 200;
             context.Response.ContentType = "application/json";
             var logs = _jitLogRepository.GetLogs();
 
@@ -65,22 +66,24 @@ namespace WonderTools.JitLogger
             return logs.Where(x => x.LogId > id).ToList();
         }
 
-        private bool IsRequestForJitUi(string path)
+        private bool IsRequestForJitUi(string path, string method)
         {
-            return IsRequestValid(path, "/ui");
+            return IsRequestValid(path,method, "/ui");
         }
 
-        private bool IsRequestForJitLogs(string path)
+        private bool IsRequestForJitLogs(string path, string method)
         {
-            return IsRequestValid(path, "/logs");
+            return IsRequestValid(path,method, "/logs");
         }
 
-        private bool IsRequestValid(string basePath, string additionalPath)
+        private bool IsRequestValid(string requestPath, string requestMethod, string additionalPath)
         {
             var path = _options.JitEndPointBaseUrl + additionalPath;
-            if (string.IsNullOrWhiteSpace(basePath)) return false;
-            if (basePath.Equals(path, StringComparison.InvariantCultureIgnoreCase)) return true;
-            if (basePath.Equals(path + "/", StringComparison.InvariantCultureIgnoreCase)) return true;
+            if (string.IsNullOrWhiteSpace(requestPath)) return false;
+            if (string.IsNullOrEmpty(requestMethod)) return false;
+            if (!requestMethod.Equals("get", StringComparison.InvariantCultureIgnoreCase)) return false;
+            if (requestPath.Equals(path, StringComparison.InvariantCultureIgnoreCase)) return true;
+            if (requestPath.Equals(path + "/", StringComparison.InvariantCultureIgnoreCase)) return true;
             return false;
         }
     }

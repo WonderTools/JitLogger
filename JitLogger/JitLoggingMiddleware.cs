@@ -26,6 +26,8 @@ namespace WonderTools.JitLogger
             var method = context.Request.Method;
             if (IsRequestForJitLogs(path, method)) await HandleJitLogsRequest(context);
             else if (IsRequestForJitUi(path, method)) await HandleJitUiRequest(context);
+            else if (IsRequestForPreflightJitUi(path, method) && _options.IsCorsEnabled) await HandlePreflight(context);
+            else if (IsRequestForPreflightJitLogs(path, method) && _options.IsCorsEnabled) await HandlePreflight(context);
             else await next.Invoke();
         }
 
@@ -37,9 +39,19 @@ namespace WonderTools.JitLogger
             await context.Response.WriteAsync(html, Encoding.UTF8);
         }
 
+        private async Task HandlePreflight(HttpContext context)
+        {
+            context.Response.Headers.Add("Access-Control-Allow-Credentials", new[] { "true" });
+            context.Response.Headers.Add("Access-Control-Allow-Headers", new[] { "authorization", "cache-control" });
+            context.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "null" });
+            context.Response.Headers.Add("PolicyMaker", new[] { "Nachiappan" });
+            context.Response.Headers.Add("Vary", new[] { "Origin" });
+            context.Response.StatusCode = 204;
+            await context.Response.WriteAsync(string.Empty, Encoding.UTF8);
+        }
+         
         private async Task HandleJitLogsRequest(HttpContext context)
         {
-            
             context.Response.StatusCode = 200;
             context.Response.ContentType = "application/json";
             var logs = _jitLogRepository.GetLogs();
@@ -68,20 +80,30 @@ namespace WonderTools.JitLogger
 
         private bool IsRequestForJitUi(string path, string method)
         {
-            return IsRequestValid(path,method, "/ui");
+            return IsRequestValid(path,method, "/ui", "get");
         }
 
         private bool IsRequestForJitLogs(string path, string method)
         {
-            return IsRequestValid(path,method, "/logs");
+            return IsRequestValid(path,method, "/logs","get");
         }
 
-        private bool IsRequestValid(string requestPath, string requestMethod, string additionalPath)
+        private bool IsRequestForPreflightJitUi(string path, string method)
         {
-            var path = _options.JitEndPointBaseUrl + additionalPath;
+            return IsRequestValid(path, method, "/ui", "options");
+        }
+
+        private bool IsRequestForPreflightJitLogs(string path, string method)
+        {
+            return IsRequestValid(path, method, "/logs", "options");
+        }
+
+        private bool IsRequestValid(string requestPath, string requestMethod, string expectedAdditionalPath, string expectedMethod)
+        {
+            var path = _options.JitEndPointBaseUrl + expectedAdditionalPath;
             if (string.IsNullOrWhiteSpace(requestPath)) return false;
             if (string.IsNullOrEmpty(requestMethod)) return false;
-            if (!requestMethod.Equals("get", StringComparison.InvariantCultureIgnoreCase)) return false;
+            if (!requestMethod.Equals(expectedMethod, StringComparison.InvariantCultureIgnoreCase)) return false;
             if (requestPath.Equals(path, StringComparison.InvariantCultureIgnoreCase)) return true;
             if (requestPath.Equals(path + "/", StringComparison.InvariantCultureIgnoreCase)) return true;
             return false;

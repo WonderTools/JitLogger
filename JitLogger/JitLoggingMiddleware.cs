@@ -44,7 +44,6 @@ namespace WonderTools.JitLogger
             context.Response.Headers.Add("Access-Control-Allow-Credentials", new[] { "true" });
             context.Response.Headers.Add("Access-Control-Allow-Headers", new[] { "authorization", "cache-control" });
             context.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "null" });
-            context.Response.Headers.Add("PolicyMaker", new[] { "Nachiappan" });
             context.Response.Headers.Add("Vary", new[] { "Origin" });
             context.Response.StatusCode = 204;
             await context.Response.WriteAsync(string.Empty, Encoding.UTF8);

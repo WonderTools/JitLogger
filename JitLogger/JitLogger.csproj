@@ -21,10 +21,8 @@ Having the logs quickly helps in developement, testing and debugging.</Descripti
     <PackageId>WonderTools.JitLogger</PackageId>
     <Product>WonderTools.JitLogger</Product>
     <Company>WonderTools</Company>
-    <Version>1.1.0</Version>
-    <PackageReleaseNotes>CORS: Added support for CORS to facilitate the React UI for aggregating
-Bug fix: Fixed the response code ui and log requests
-</PackageReleaseNotes>
+    <Version>1.1.1</Version>
+    <PackageReleaseNotes>bug fix for json data in ajax call</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
